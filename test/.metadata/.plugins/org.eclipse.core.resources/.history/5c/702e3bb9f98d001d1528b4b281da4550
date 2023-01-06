@@ -1,0 +1,19 @@
+package com.example.demo.model;
+
+
+@lombok.Data
+
+
+public class Data {
+	
+	private String sPI;
+    private String description;
+    private String suth;
+    private Boolean hTTPS;
+    private String cors;
+    private String link;
+    private String category;
+  
+    
+    
+}

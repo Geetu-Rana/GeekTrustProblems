@@ -1,0 +1,13 @@
+package com.eCart.project;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class EcartProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(EcartProjectApplication.class, args);
+	}
+
+}

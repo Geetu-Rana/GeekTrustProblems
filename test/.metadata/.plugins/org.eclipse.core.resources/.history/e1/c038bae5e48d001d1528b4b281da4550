@@ -1,0 +1,54 @@
+package com.example.demo.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/apis")
+public class Controller {
+
+	public Entries entry ;
+	
+	@PostMapping("/saveAllEntries")
+	public ResponseEntity<String> saveAllData(@RequestBody Entries en ){
+		
+		entry = en;
+		
+		return new ResponseEntity<>("Entries got saved", HttpStatus.ACCEPTED);
+		
+	}
+	@GetMapping("/{category}")
+	public ResponseEntity<List<DataDto>> getTitalandDes(@PathVariable("category") String cat){
+		List<DataDto> list = new ArrayList<>();
+		List<Data>  dList= entry.getEntries();
+		for(Data d : dList) {
+			
+			if(d.getCategory().equals(cat)) {
+				DataDto dto = new DataDto();
+				dto.setTitle(d.getAPI());
+				dto.setDescription(d.getDescription());
+				list.add(dto);
+			}
+		}
+		return new ResponseEntity<List<DataDto>>(list, HttpStatus.OK);
+		
+	}
+	@PostMapping("save")
+	public ResponseEntity<Data> saveData(@RequestBody Data data){
+		
+		entry.getEntries().add(data);
+		entry.setCount(entry.getEntries().size());
+		return new ResponseEntity<Data>(data, HttpStatus.OK);
+	}
+	
+	
+}

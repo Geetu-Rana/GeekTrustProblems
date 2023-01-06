@@ -1,0 +1,19 @@
+package com.example.demo.model;
+
+
+@lombok.Data
+
+
+public class Data {
+	
+	private String API;
+    private String Description;
+    private String Auth;
+    private Boolean HTTPS;
+    private String Cors;
+    private String Link;
+    private String Category;
+  
+    
+    
+}
