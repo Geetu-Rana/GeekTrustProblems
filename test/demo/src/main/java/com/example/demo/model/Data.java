@@ -1,12 +1,12 @@
 package com.example.demo.model;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @lombok.Data
 
-
 public class Data {
-	
+
 	@JsonProperty("API")
 	private String api;
 	

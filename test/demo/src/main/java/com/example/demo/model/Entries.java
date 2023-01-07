@@ -2,26 +2,29 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+@Entity
 public class Entries {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer Id;
 	
 	private Integer count;
 	
+	@ElementCollection
+	@Embedded
+	@JoinTable(name = "entry_data", joinColumns = @JoinColumn(name = "eId"))
 	private List<Data> entries;
 
-	public Entries(List<Data> entries) {
-		super();
-		this.entries = entries;
-	}
-
-	public Entries(Integer count, List<Data> entries) {
-		super();
-		this.count = count;
-		this.entries = entries;
-	}
-
 	public Entries() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Integer getCount() {
