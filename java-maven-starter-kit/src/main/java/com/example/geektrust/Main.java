@@ -5,8 +5,17 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+	private Solution sol = new Solution();
+	
+	public void getDetails(String[] arr) {
+		
+		
+	}
+	
+	
+	
     public static void main(String[] args) {
-       
+       Main mn = new Main();
        // Sample code to read from file passed as command line argument
         try {
             // the file to be opened for reading
@@ -16,6 +25,9 @@ public class Main {
             while (sc.hasNextLine()) {
                //Add your code here to process input commands
             	 String inputCommand = sc.nextLine();
+            	 String[] arr = inputCommand.split(" ");
+            	 mn.getDetails( arr );
+            	 
             	 System.out.println(inputCommand);
             }
            
